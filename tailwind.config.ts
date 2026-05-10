@@ -76,6 +76,10 @@ const config: Config = {
       },
     },
   },
+  safelist: [
+    'opacity-0', 'opacity-10', 'opacity-20', 'opacity-25',
+    'opacity-30', 'opacity-35', 'opacity-40', 'opacity-50',
+  ],
   plugins: [],
 }
 

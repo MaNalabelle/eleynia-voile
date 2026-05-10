@@ -67,13 +67,15 @@ export default function MotDeMyna() {
     >
       {/* Image de fond : forêt de Miralyn */}
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/assets/royaumes/miralyn.jpeg"
-          alt=""
-          fill
-          className="object-cover object-center opacity-30"
-          sizes="100vw"
-        />
+        <div style={{ opacity: 0.30 }} className="absolute inset-0">
+          <Image
+            src="/assets/royaumes/miralyn.jpeg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
         <div
           className="absolute inset-0"
           style={{

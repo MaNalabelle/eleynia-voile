@@ -64,13 +64,15 @@ export default function Reliques({ registered: _registered }: ReliquesProps) {
     >
       {/* Image de fond : sept clans / scène épique */}
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/assets/scenes/sept_clans.jpeg"
-          alt=""
-          fill
-          className="object-cover object-top opacity-20"
-          sizes="100vw"
-        />
+        <div style={{ opacity: 0.20 }} className="absolute inset-0">
+          <Image
+            src="/assets/scenes/sept_clans.jpeg"
+            alt=""
+            fill
+            className="object-cover object-top"
+            sizes="100vw"
+          />
+        </div>
         <div
           className="absolute inset-0"
           style={{
@@ -150,13 +152,15 @@ function ReliqueCarte({ relique }: { relique: Relique }) {
     >
       {/* Image de fond du royaume */}
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src={relique.bgImage}
-          alt=""
-          fill
-          className="object-cover object-center opacity-20 transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        <div style={{ opacity: 0.20 }} className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+          <Image
+            src={relique.bgImage}
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
         <div
           className="absolute inset-0"
           style={{

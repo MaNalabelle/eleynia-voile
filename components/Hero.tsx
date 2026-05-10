@@ -199,14 +199,16 @@ export default function Hero({ onSuccess, registered }: HeroProps) {
     >
       {/* ── Image de fond : forêt nocturne ── */}
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/assets/scenes/foret.jpeg"
-          alt=""
-          fill
-          className="object-cover object-center opacity-35"
-          priority
-          sizes="100vw"
-        />
+        <div style={{ opacity: 0.35 }} className="absolute inset-0">
+          <Image
+            src="/assets/scenes/foret.jpeg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
         {/* Overlay dégradé sombre pour lisibilité */}
         <div
           className="absolute inset-0"
