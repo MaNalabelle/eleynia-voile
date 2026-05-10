@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --eleynia-emerald-deep: #0E2A1F;
+    --eleynia-emerald:      #1E5E3F;
+    --eleynia-gold:         #D4A24C;
+    --eleynia-gold-light:   #E8C57A;
+    --eleynia-saphir:       #1E3A8A;
+    --parchment:            #F5EDD8;
+    --parchment-dark:       #E8DDB8;
+    --ink:                  #0B0F0C;
+    --white-glow:           #FAF7F0;
+    --ease-eleynia:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Désactivation globale des animations si prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:       0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration:      0.01ms !important;
+      scroll-behavior:          auto !important;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--eleynia-emerald-deep);
+  }
+
+  body {
+    background-color: var(--eleynia-emerald-deep);
+    color: var(--white-glow);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  /* Anneau de focus doré — WCAG AA navigation clavier */
+  :focus-visible {
+    outline: 2px solid var(--eleynia-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Scrollbar style Eleynia */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--eleynia-emerald-deep); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--eleynia-emerald), var(--eleynia-gold));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--eleynia-gold); }
+
+  /* Sélection de texte */
+  ::selection {
+    background: rgba(212, 162, 76, 0.28);
+    color: #FAF7F0;
+  }
+
+  /* Glow doré sur tous les titres gold — ambiance Harry Potter / LOTR */
+  h1.text-eleynia-gold,
+  h2.text-eleynia-gold,
+  h3.text-eleynia-gold {
+    text-shadow:
+      0 0 18px rgba(212, 162, 76, 0.55),
+      0 0 55px rgba(212, 162, 76, 0.2),
+      0 1px 0   rgba(0, 0, 0, 0.5);
+  }
+
+  /* Titre hero (text-display) encore plus dramatique */
+  h1 {
+    text-shadow:
+      0 0 28px rgba(212, 162, 76, 0.6),
+      0 0 80px rgba(212, 162, 76, 0.22),
+      0 2px 0   rgba(0, 0, 0, 0.6);
+  }
+
+  /* Fond body avec légère profondeur émeraude */
+  body {
+    background-image:
+      radial-gradient(ellipse 90% 50% at 50% -5%,  rgba(30,94,63,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 30% at 50% 100%, rgba(14,42,31,0.8)  0%, transparent 70%);
+  }
+}
+
+@layer components {
+  /* Surface parchemin — sections claires */
+  .surface-parchment {
+    background-color: var(--parchment);
+    color: var(--ink);
+  }
+
+  /* Input style manuscrit sur parchemin */
+  .input-voile {
+    @apply w-full bg-transparent border border-eleynia-gold/40 rounded-md px-4 py-3
+           font-body text-body-lg text-parchment placeholder:text-parchment/50
+           focus:border-eleynia-gold focus:shadow-gold-glow
+           transition-all duration-300 outline-none;
+    transition-timing-function: var(--ease-eleynia);
+  }
+
+  /* Input sur fond parchemin clair */
+  .input-voile-parchment {
+    @apply w-full bg-parchment-dark/40 border border-ink/25 rounded-md px-4 py-3
+           font-body text-body-lg text-ink placeholder:text-ink/45
+           focus:border-eleynia-gold/60 focus:shadow-gold-glow
+           transition-all duration-300 outline-none;
+    transition-timing-function: var(--ease-eleynia);
+  }
+
+  /* Boutons — émeraude sombre + texte & glow dorés (cohérence totale) */
+  .btn-primary,
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           font-display text-small tracking-widest uppercase
+           rounded-lg px-8 py-3 cursor-pointer
+           transition-all duration-300;
+    background:  linear-gradient(135deg, #0E2A1F 0%, #1E5E3F 100%);
+    color:       #D4A24C;
+    border:      1.5px solid rgba(212,162,76,0.62);
+    box-shadow:  0 0 18px rgba(212,162,76,0.22), 0 4px 16px rgba(0,0,0,0.4);
+    text-shadow: 0 0 12px rgba(212,162,76,0.38);
+    transition-timing-function: var(--ease-eleynia);
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    border-color: rgba(212,162,76,0.92);
+    box-shadow:   0 0 38px rgba(212,162,76,0.58), 0 6px 26px rgba(0,0,0,0.52);
+  }
+
+  /* Séparateur ornemental doré — shimmer subtil */
+  .ornament-separator {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--eleynia-gold) 25%,
+      var(--eleynia-gold-light) 50%,
+      var(--eleynia-gold) 75%,
+      transparent
+    );
+    box-shadow: 0 0 6px rgba(212, 162, 76, 0.35);
+    animation: separator-shimmer 4.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ornament-separator { animation: none; }
+  }
+
+  /* Bouton doré — fond or + texte sombre (CTA prioritaires) */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2
+           font-display text-small tracking-widest uppercase
+           rounded-lg px-8 py-3 cursor-pointer
+           transition-all duration-300;
+    background:  linear-gradient(135deg, #C4922A 0%, #E8C57A 50%, #C4922A 100%);
+    background-size: 200% auto;
+    color:       #0B0F0C;
+    border:      1.5px solid rgba(212,162,76,0.8);
+    box-shadow:  0 0 22px rgba(212,162,76,0.45), 0 4px 18px rgba(0,0,0,0.5);
+    text-shadow: none;
+    animation: btn-gold-shimmer 3s ease-in-out infinite, btn-gold-glow 3.5s ease-in-out infinite;
+    transition-timing-function: var(--ease-eleynia);
+  }
+
+  .btn-gold:hover {
+    background-position: right center;
+    box-shadow: 0 0 42px rgba(212,162,76,0.75), 0 6px 28px rgba(0,0,0,0.55);
+    border-color: rgba(232,197,122,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-gold { animation: none; }
+  }
+
+  /* Btn primaire — légère pulsation magique au repos */
+  .btn-primary {
+    animation: btn-idle-glow 3.5s ease-in-out infinite;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { animation: none; }
+  }
+}
+
+/* ── Titre héro : effet scintillant ── */
+.title-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #A87220  0%,
+    #D4A24C 18%,
+    #ECC86A 34%,
+    #FFF8C8 50%,
+    #ECC86A 66%,
+    #D4A24C 82%,
+    #A87220 100%
+  );
+  background-size: 280% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-shimmer 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-gold-shimmer {
+    animation: none;
+    background-position: 50% center;
+  }
+}
+
+/* ── Keyframes magiques ── */
+
+@keyframes title-shimmer {
+  0%   { background-position: 100% center; }
+  50%  { background-position: 0%   center; }
+  100% { background-position: 100% center; }
+}
+
+@keyframes separator-shimmer {
+  0%, 100% { opacity: 0.55; box-shadow: 0 0 4px rgba(212,162,76,0.2); }
+  50%       { opacity: 1;    box-shadow: 0 0 10px rgba(212,162,76,0.55); }
+}
+
+@keyframes btn-idle-glow {
+  0%, 100% { box-shadow: 0 0 0px rgba(212,162,76,0),    0 0 0px rgba(212,162,76,0); }
+  50%      { box-shadow: 0 0 18px rgba(212,162,76,0.35), 0 0 32px rgba(212,162,76,0.15); }
+}
+
+@keyframes btn-gold-shimmer {
+  0%   { background-position: 0%   center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0%   center; }
+}
+
+@keyframes btn-gold-glow {
+  0%, 100% { box-shadow: 0 0 22px rgba(212,162,76,0.45), 0 4px 18px rgba(0,0,0,0.5); }
+  50%      { box-shadow: 0 0 38px rgba(212,162,76,0.72), 0 4px 22px rgba(0,0,0,0.55); }
+}

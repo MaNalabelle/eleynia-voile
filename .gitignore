@@ -1,0 +1,46 @@
+# Dépendances
+/node_modules
+/.pnp
+.pnp.js
+
+# Build Next.js
+/.next/
+/out/
+
+# Variables d'environnement — NE JAMAIS commiter
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Éditeurs
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# Netlify
+.netlify/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Fichiers bonus lourds (PDF > 100MB — hébergés séparément)
+/public/bonus/
+
+# Dossiers non-projet dans le répertoire
+/Bonus/
+/Cartes/
+/Corrections/
+/Cover/
+/Exemplaires-fin/
+/Musique/
+/Personnages/
+/Site Web/
+/Totems/marie/
