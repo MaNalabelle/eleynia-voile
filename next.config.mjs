@@ -4,6 +4,16 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/voile',
+        permanent: false,
+      },
+    ]
+  },
+
   async headers() {
     return [
       {
