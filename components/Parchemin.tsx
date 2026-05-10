@@ -101,11 +101,9 @@ export default function Parchemin({ onSuccess, registered }: ParcheminProps) {
         >
           <div className="relative rounded-lg px-10 py-12 text-left"
             style={{
-              background: 'rgba(6,16,10,0.90)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-              border: '1.5px solid rgba(212,162,76,0.35)',
-              boxShadow: '0 8px 64px rgba(0,0,0,0.75), inset 0 0 80px rgba(212,162,76,0.04), inset 0 1px 0 rgba(212,162,76,0.12)',
+              background: 'linear-gradient(160deg, #0F2D1E 0%, #0B2016 100%)',
+              border: '1.5px solid rgba(212,162,76,0.55)',
+              boxShadow: '0 0 0 1px rgba(212,162,76,0.08), 0 8px 64px rgba(0,0,0,0.75), inset 0 1px 0 rgba(212,162,76,0.18)',
             }}
           >
             {/* Coins ornementaux */}

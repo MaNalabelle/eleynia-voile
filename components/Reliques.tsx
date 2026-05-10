@@ -138,8 +138,9 @@ function ReliqueCarte({ relique }: { relique: Relique }) {
       }}
       className="relative rounded-lg overflow-hidden group cursor-default"
       style={{
-        border:    '1px solid rgba(212,162,76,0.18)',
-        boxShadow: '0 4px 28px rgba(0,0,0,0.4)',
+        background: 'linear-gradient(135deg, #112518 0%, #0C1E13 100%)',
+        border:    '1px solid rgba(212,162,76,0.35)',
+        boxShadow: '0 4px 28px rgba(0,0,0,0.5)',
       }}
       whileHover={{
         boxShadow: '0 10px 56px rgba(212,162,76,0.22), 0 0 0 1px rgba(212,162,76,0.45)',
@@ -153,8 +154,7 @@ function ReliqueCarte({ relique }: { relique: Relique }) {
           src={relique.bgImage}
           alt=""
           fill
-          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-          style={{ opacity: 0.18 }}
+          className="object-cover object-center opacity-20 transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div
