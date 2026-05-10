@@ -68,8 +68,7 @@ export default function Reliques({ registered: _registered }: ReliquesProps) {
           src="/assets/scenes/sept_clans.jpeg"
           alt=""
           fill
-          className="object-cover object-top"
-          style={{ opacity: 0.22 }}
+          className="object-cover object-top opacity-20"
           sizes="100vw"
         />
         <div

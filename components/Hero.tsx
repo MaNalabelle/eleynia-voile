@@ -203,8 +203,7 @@ export default function Hero({ onSuccess, registered }: HeroProps) {
           src="/assets/scenes/foret.jpeg"
           alt=""
           fill
-          className="object-cover object-center"
-          style={{ opacity: 0.35 }}
+          className="object-cover object-center opacity-35"
           priority
           sizes="100vw"
         />

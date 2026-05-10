@@ -71,8 +71,7 @@ export default function MotDeMyna() {
           src="/assets/royaumes/miralyn.jpeg"
           alt=""
           fill
-          className="object-cover object-center"
-          style={{ opacity: 0.28 }}
+          className="object-cover object-center opacity-30"
           sizes="100vw"
         />
         <div
